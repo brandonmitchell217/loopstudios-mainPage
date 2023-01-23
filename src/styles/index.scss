@@ -1,0 +1,452 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap");
+
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+$darkGray: hsl(0, 0%, 55%);
+$extraDarkGray: hsl(0, 0%, 41%);
+$josefin: "Josefin Sans", sans-serif;
+$alata: "Alata";
+$text-shadow1: rgba(0, 0, 0, 0.45);
+$text-shadow2: rgba(0, 0, 0, 0.15);
+$text-shadow3: rgba(0, 0, 0, 0.75);
+$cubic1: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  font-family: $josefin;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $white;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+.hoverLink {
+  position: relative;
+  display: block;
+
+  &:after {
+    position: absolute;
+    content: "";
+    bottom: -1px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: $white;
+    background-position: left;
+    transition: all 300ms $cubic1;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+      background-position: right;
+    }
+  }
+}
+
+nav {
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  font-family: $alata;
+  font-weight: 400;
+  color: $white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include media-breakpoint-up(md) {
+    padding: 3rem 3rem 0;
+  }
+
+  .burger,
+  .logo {
+    position: relative;
+    z-index: 10;
+  }
+
+  .burger {
+    padding: 6px;
+    cursor: pointer;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  .mobile_menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    padding: 0 1.5rem;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    text-transform: uppercase;
+    font-size: 28px;
+    background-color: $black;
+  }
+
+  .desktop_menu {
+    display: none;
+    text-shadow: 0 1px 3px $text-shadow1;
+    @include media-breakpoint-up(md) {
+      display: flex;
+      font-size: 20px;
+      gap: 1rem;
+    }
+  }
+  //........... End Nav ...........
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+//........... Home Landing Section ...........
+#landing {
+  padding: 20rem 0;
+  background-image: url("../images/mobile/image-hero.jpg");
+  background-size: cover;
+  background-position: center;
+
+  @include media-breakpoint-up(md) {
+    padding: 18rem 0 12rem;
+    background-image: url("../images/desktop/image-hero.jpg");
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include media-breakpoint-up(md) {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    h1 {
+      max-width: 95%;
+      display: inline-block;
+      padding: 1.5rem 2rem;
+      font-size: 3.125rem;
+      text-transform: uppercase;
+
+      color: $white;
+      border: 3px solid $white;
+
+      @include media-breakpoint-up(sm) {
+        font-size: 2.75rem;
+      }
+      @include media-breakpoint-up(md) {
+        font-size: 3.875rem;
+      }
+      @include media-breakpoint-up(lg) {
+        font-size: 4.25rem;
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: 4.625rem;
+      }
+      @include media-breakpoint-up(xxl) {
+        font-size: 5rem;
+      }
+    }
+  }
+}
+
+//........... About Section ...........
+#about {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 1.875rem;
+    font-size: clamp(
+      1.875rem,
+      1.4464285714285714rem + 2.142857142857143vw,
+      3.375rem
+    );
+  }
+
+  //........... About header ...........
+  .aboutHeader {
+    position: relative;
+    width: 100%;
+    padding: 3rem 0 0;
+    @include media-breakpoint-up(lg) {
+      padding: 8rem 0;
+    }
+    .container {
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+    }
+    &--image_wrap {
+      img {
+        margin: auto;
+        max-width: 100%;
+      }
+    }
+
+    &--text {
+      padding: 0 4.5rem;
+      background-color: $white;
+      text-align: center;
+
+      @include media-breakpoint-up(lg) {
+        position: relative;
+        top: 50px;
+        text-align: left;
+        flex: 0.8;
+        min-height: 300px;
+
+        margin-left: -8%;
+        padding-bottom: 2rem;
+        box-shadow: 4px 2px 8px -1px $text-shadow2;
+      }
+      h1 {
+        margin: 2rem 0 1rem;
+      }
+
+      p {
+        font-family: $alata;
+        font-weight: 400;
+        font-size: 0.9375rem;
+        font-size: clamp(
+          0.9375rem,
+          0.9017857142857143rem + 0.17857142857142858vw,
+          1.0625rem
+        );
+      }
+    }
+  }
+
+  //........... About Creations ...........
+  .aboutCreations {
+    width: 100%;
+    padding: 3rem 0;
+    text-align: center;
+    @include media-breakpoint-up(lg) {
+      padding: 8rem 0 4rem;
+    }
+
+    .creation-header {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        @include media-breakpoint-up(md) {
+          justify-content: space-between;
+          flex: 1;
+          text-align: left;
+        }
+      }
+    }
+
+    .creationGrid {
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-rows: repeat(8, 1fr);
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+
+      @include media-breakpoint-up(md) {
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      @include media-breakpoint-up(lg) {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .creation {
+        position: relative;
+        height: 200px;
+        padding: 1.5rem;
+        background-size: cover;
+        background-position: center;
+        color: $white;
+        font-size: 20px;
+        text-transform: uppercase;
+        transition: all 300ms $cubic1;
+
+        @include media-breakpoint-up(md) {
+          height: 500px;
+          background-position: top;
+        }
+        @include media-breakpoint-up(xl) {
+          height: 600px;
+          background-position: center;
+        }
+
+        a {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-end;
+        }
+
+        h2 {
+          max-width: 9ch;
+          text-align: left;
+          text-shadow: 0 1px 3px $text-shadow1;
+          transition: all 300ms $cubic1;
+        }
+        &:hover {
+          transform: scale(1.015);
+
+          h2 {
+            text-shadow: 0 1px 7px -1px $text-shadow3;
+          }
+        }
+      }
+    }
+    .cta {
+      width: 180px;
+      margin: auto;
+      padding: 0.75rem 0 0.5rem;
+      font-size: 15px;
+      text-transform: uppercase;
+      background-color: transparent;
+      border: 1px solid $black;
+      transition: all 300ms ease-in;
+
+      @include media-breakpoint-up(md) {
+        font-size: 18px;
+      }
+
+      &:hover {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+  //........... End About ...........
+}
+
+footer {
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+
+  @include media-breakpoint-up(md) {
+    padding: 3rem 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  font-family: $alata;
+  font-weight: 400;
+  background-color: $black;
+  color: $white;
+
+  .topLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    @include media-breakpoint-up(md) {
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .footer_menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      @include media-breakpoint-up(md) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      a {
+        font-size: 17px;
+      }
+    }
+  }
+
+  .bottomRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    @include media-breakpoint-up(md) {
+      gap: 0.5rem;
+    }
+
+    .social_icons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      a {
+        transition: all 300ms $cubic1;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      @include media-breakpoint-up(md) {
+        justify-content: space-evenly;
+      }
+    }
+    p {
+      color: $darkGray;
+    }
+  }
+}
