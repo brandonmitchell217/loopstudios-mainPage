@@ -16,7 +16,7 @@ const SocialIcons: SocialIcon[] = [
   { icon: Instagram, alt: "Instagram Icon" },
 ];
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
   return (
     <footer>
       <div className="topLeft">

@@ -11,7 +11,7 @@ import Burger from "../images/icon-hamburger.svg";
 import Close from "../images/icon-close.svg";
 import useSizing from "../hooks/useSizing";
 
-export const Nav = () => {
+export const Nav: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   const isMobile: boolean = useSizing() <= 768 ? true : false;
