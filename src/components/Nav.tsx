@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  RefObject,
+  useLayoutEffect,
+} from "react";
 import { gsap } from "gsap";
 import Logo from "../images/logo.svg";
 import Burger from "../images/icon-hamburger.svg";
@@ -6,11 +12,11 @@ import Close from "../images/icon-close.svg";
 import useSizing from "../hooks/useSizing";
 
 export const Nav = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
-  const isMobile = useSizing() <= 768 ? true : false;
+  const isMobile: boolean = useSizing() <= 768 ? true : false;
 
-  const nav: any = useRef();
+  const nav: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

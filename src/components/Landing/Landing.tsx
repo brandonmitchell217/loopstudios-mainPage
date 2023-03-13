@@ -1,8 +1,8 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, RefObject } from "react";
 import { gsap } from "gsap";
 
 export const Landing = () => {
-  const app: any = useRef();
+  const app: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

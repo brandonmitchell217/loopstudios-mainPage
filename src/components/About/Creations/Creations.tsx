@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, RefObject } from "react";
 import List, { ListProps } from "./List";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import useSizing from "../../../hooks/useSizing";
 
-export const Creations = () => {
-  const isMobile = useSizing() <= 768 ? true : false;
+export const Creations: React.FC = () => {
+  const isMobile: boolean = useSizing() <= 768 ? true : false;
 
   gsap.registerPlugin(ScrollTrigger);
-  const app: any = useRef();
+  const app: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

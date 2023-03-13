@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, RefObject } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 export const AboutHeader = () => {
   gsap.registerPlugin(ScrollTrigger);
-  const app: any = useRef();
+  const app: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

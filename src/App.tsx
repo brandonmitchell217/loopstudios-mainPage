@@ -5,7 +5,9 @@ import { Landing } from "./components/Landing/Landing";
 import { About } from "./layouts/About";
 
 function App() {
-  const links = Array.from(document.querySelectorAll(".fakeLinks a"));
+  const links: HTMLAnchorElement[] = Array.from(
+    document.querySelectorAll(".fakeLinks a")
+  );
 
   links.forEach((li) => {
     li.addEventListener("click", (e) => {

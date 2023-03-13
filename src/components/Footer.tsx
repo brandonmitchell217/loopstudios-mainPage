@@ -5,7 +5,11 @@ import Twitter from "../images/icon-twitter.svg";
 import Pinterest from "../images/icon-pinterest.svg";
 import Instagram from "../images/icon-instagram.svg";
 
-const SocialIcons = [
+interface SocialIcon {
+  icon: string;
+  alt: string;
+}
+const SocialIcons: SocialIcon[] = [
   { icon: Facebook, alt: "Facebook Icon" },
   { icon: Twitter, alt: "Twitter Icon" },
   { icon: Pinterest, alt: "Pinterest Icon" },
