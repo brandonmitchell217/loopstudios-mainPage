@@ -77,7 +77,7 @@ img {
 
 nav {
   padding: 1rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 9;
@@ -85,7 +85,6 @@ nav {
   font-family: $alata;
   font-weight: 400;
   color: $white;
-
   display: flex;
   justify-content: space-between;
   align-items: center;

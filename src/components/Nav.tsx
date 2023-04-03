@@ -38,8 +38,6 @@ export const Nav: React.FC = () => {
   useEffect(() => {
     const check = () => {
       if (isMobile) {
-        return setOpen(!open);
-      } else {
         return setOpen(false);
       }
     };
